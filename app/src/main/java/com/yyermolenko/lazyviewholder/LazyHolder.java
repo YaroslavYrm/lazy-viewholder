@@ -11,4 +11,11 @@ public interface LazyHolder {
 
     View find(Activity activity, int id);
 
+    void put(View view);
+
+    void put(int id, View view);
+
+    void clear();
+
+    void remove(int id);
 }

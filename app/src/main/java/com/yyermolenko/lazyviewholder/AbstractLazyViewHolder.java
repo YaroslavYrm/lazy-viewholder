@@ -24,4 +24,23 @@ public abstract class AbstractLazyViewHolder implements LazyHolder {
         return foundView;
     }
 
+    @Override
+    public void put(View view) {
+        put(view.getId(), view);
+    }
+
+    @Override
+    public void put(int id, View view) {
+        holder.put(id, view);
+    }
+
+    @Override
+    public void clear() {
+        holder = new SparseArray<>();
+    }
+
+    @Override
+    public void remove(int id) {
+        holder.remove(id);
+    }
 }
