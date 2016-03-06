@@ -54,6 +54,8 @@ public interface LazyHolder {
      */
     void put(int id, View view);
 
+    void putAll(LazyHolder lazyHolder);
+
     void clear();
 
     void remove(int id);
