@@ -74,4 +74,5 @@ public interface LazyHolder {
 
     ListView findListView(int id);
 
+    void execute(int id, ViewExecutable executable);
 }

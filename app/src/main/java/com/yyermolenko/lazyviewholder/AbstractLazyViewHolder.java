@@ -115,4 +115,10 @@ public abstract class AbstractLazyViewHolder implements LazyHolder {
         return find(ListView.class, id);
     }
 
+    @Override
+    public void execute(int id, ViewExecutable executable) {
+        View view = find(id);
+        executable.execute(view);
+    }
+
 }
