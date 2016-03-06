@@ -18,4 +18,9 @@ public class LazyViewHolder extends AbstractLazyViewHolder {
 
         return view;
     }
+
+    @Override
+    protected View getRootView() {
+        return rootView;
+    }
 }

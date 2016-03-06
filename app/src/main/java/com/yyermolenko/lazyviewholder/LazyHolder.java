@@ -11,14 +11,47 @@ import android.widget.TextView;
 
 public interface LazyHolder {
 
+    /**
+     * Find and hold view for future reuse.
+     * Search is skipped if view was found already.
+     *
+     * @param id view id
+     * @return view with specified id
+     */
     View find(int id);
 
+    /**
+     * Eagle initialize {@link LazyHolder}.
+     * Allow to iterate and store all views at once.
+     * Avoid multiple search iterations within layout.
+     * May increase performance in case of big view count or tree layout structure.
+     */
+    void findAll();
+
+    /**
+     * Search within specified view
+     *
+     * @return view with specified id
+     */
     View find(View view, int id);
 
+    /**
+     * Search within specified activity
+     *
+     * @return view with specified id
+     */
     View find(Activity activity, int id);
 
+    /**
+     * Manual put view into holder with real id.
+     */
     void put(View view);
 
+    /**
+     * Manual put view into holder with specified id.
+     *
+     * @param id custom value
+     */
     void put(int id, View view);
 
     void clear();

@@ -15,10 +15,27 @@ public abstract class AbstractLazyViewHolder implements LazyHolder {
     protected SparseArray<View> holder = new SparseArray<>();
 
     @Override
+    public void findAll() {
+        findAll(getRootView());
+    }
+
+    protected abstract View getRootView();
+
+    private void findAll(View view) {
+        put(view);
+        if (view instanceof ViewGroup) {
+            ViewGroup viewGroup = (ViewGroup) view;
+            for (int i = 0; i < viewGroup.getChildCount(); i++) {
+                findAll(viewGroup.getChildAt(i));
+            }
+        }
+    }
+
+    @Override
     public View find(View view, int id) {
         View foundView = view.findViewById(id);
         if (foundView != null)
-            holder.put(id, foundView);
+            put(id, foundView);
 
         return foundView;
     }
@@ -27,7 +44,7 @@ public abstract class AbstractLazyViewHolder implements LazyHolder {
     public View find(Activity activity, int id) {
         View foundView = activity.findViewById(id);
         if (foundView != null)
-            holder.put(id, foundView);
+            put(id, foundView);
 
         return foundView;
     }
@@ -39,7 +56,8 @@ public abstract class AbstractLazyViewHolder implements LazyHolder {
 
     @Override
     public void put(int id, View view) {
-        holder.put(id, view);
+        if (id > 0)
+            holder.put(id, view);
     }
 
     @Override

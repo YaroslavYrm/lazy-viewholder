@@ -2,6 +2,7 @@ package com.yyermolenko.lazyviewholder;
 
 import android.app.Activity;
 import android.view.View;
+import android.view.ViewGroup;
 
 public class LazyActivityViewHolder extends AbstractLazyViewHolder {
 
@@ -18,5 +19,11 @@ public class LazyActivityViewHolder extends AbstractLazyViewHolder {
         }
 
         return view;
+    }
+
+    @Override
+    protected View getRootView() {
+        return ((ViewGroup) activity
+                .findViewById(android.R.id.content)).getChildAt(0);
     }
 }
