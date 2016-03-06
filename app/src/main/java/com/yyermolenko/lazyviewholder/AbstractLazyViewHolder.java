@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.util.SparseArray;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -91,11 +90,6 @@ public abstract class AbstractLazyViewHolder implements LazyHolder {
     }
 
     @Override
-    public Button findButton(int id) {
-        return find(Button.class, id);
-    }
-
-    @Override
     public EditText findEditText(int id) {
         return find(EditText.class, id);
     }
@@ -107,7 +101,7 @@ public abstract class AbstractLazyViewHolder implements LazyHolder {
 
     @Override
     public ViewGroup findViewGroup(int id) {
-        return find(ListView.class, id);
+        return find(ViewGroup.class, id);
     }
 
     @Override
