@@ -5,7 +5,9 @@ import android.util.SparseArray;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 public abstract class AbstractLazyViewHolder implements LazyHolder {
@@ -31,23 +33,38 @@ public abstract class AbstractLazyViewHolder implements LazyHolder {
     }
 
     @Override
+    public <T extends View> T find(Class<T> clazz, int id) {
+        return clazz.cast(find(id));
+    }
+
+    @Override
     public TextView findTextView(int id) {
-        return (TextView) find(id);
+        return find(TextView.class, id);
     }
 
     @Override
     public Button findButton(int id) {
-        return (Button) find(id);
+        return find(Button.class, id);
+    }
+
+    @Override
+    public EditText findEditText(int id) {
+        return find(EditText.class, id);
     }
 
     @Override
     public ImageView findImageView(int id) {
-        return (ImageView) find(id);
+        return find(ImageView.class, id);
     }
 
     @Override
     public ViewGroup findViewGroup(int id) {
-        return (ViewGroup) find(id);
+        return find(ListView.class, id);
+    }
+
+    @Override
+    public ListView findListView(int id) {
+        return find(ListView.class, id);
     }
 
 }
