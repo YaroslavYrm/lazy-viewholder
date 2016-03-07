@@ -14,7 +14,16 @@ Views are stored in SparseArray with first method call.
             TextView text = lh.findTextView(R.id.text);
             ImageView image = lh.findImageView(R.id.image);
             GridView grid = lh.find(GridView.class, R.id.grid);
+        
             ...
+
+            lh.execute(R.id.view2, new ViewExecutable() {
+                @Override
+                public void execute(View view) {
+                    ...
+                }
+            });
+
        }
 ```
 
