@@ -1,4 +1,4 @@
-package com.yyermolenko.lazyviewholder;
+package com.yyermolenko.lazyviewholder.sparsearrayimpl;
 
 import android.app.Activity;
 import android.util.SparseArray;
@@ -8,6 +8,9 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.yyermolenko.lazyviewholder.LazyHolder;
+import com.yyermolenko.lazyviewholder.ViewExecutable;
 
 public abstract class AbstractLazyViewHolder implements LazyHolder {
 
