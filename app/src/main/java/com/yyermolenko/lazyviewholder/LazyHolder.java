@@ -3,7 +3,6 @@ package com.yyermolenko.lazyviewholder;
 import android.app.Activity;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -54,6 +53,8 @@ public interface LazyHolder {
      */
     void put(int id, View view);
 
+    void putAll(LazyHolder lazyHolder);
+
     void clear();
 
     void remove(int id);
@@ -61,8 +62,6 @@ public interface LazyHolder {
     <T extends View> T find(Class<T> clazz, int id);
 
     TextView findTextView(int id);
-
-    Button findButton(int id);
 
     EditText findEditText(int id);
 
@@ -72,4 +71,5 @@ public interface LazyHolder {
 
     ListView findListView(int id);
 
+    void execute(int id, ViewExecutable executable);
 }

@@ -1,4 +1,4 @@
-package com.yyermolenko.lazyviewholder;
+package com.yyermolenko.lazyviewholder.sparsearrayimpl;
 
 import android.app.Activity;
 import android.view.View;
